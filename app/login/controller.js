@@ -6,11 +6,11 @@ export default Ember.Controller.extend({
   actions: {
     login() {
       this.get('session').authenticate('authenticator:torii', 'github').then(()=>{
-          this.transitionToRoute('authenticated');
+          this.transitionToRoute('authenticated.home');
       })
       .catch(()=>{
         if(this.get('session.isAuthenticated')) {
-          this.transitionToRoute('authenticated');
+          this.transitionToRoute('authenticated.home');
         }
       })
     }
