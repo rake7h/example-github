@@ -10,12 +10,8 @@ export default Route.extend(AuthenticatedRouteMixin,{
       return user;
     })
 
-    let currentUser = this.get('tabSession').set('git_user');
-    let repos = this.get('store').query('github-repository', { user: currentUser, type: 'all' }); // get all repositories for user
-
     return Ember.RSVP.hash({
       user: user,
-      repos: repos
     });
   }
 });

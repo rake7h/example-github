@@ -1,0 +1,15 @@
+<h3 class="">Repositories </h3>
+<div class="mt-4 row">
+  {{logger repository}}
+  {{#each repository as |repo|}}
+    <div class="col-sm-12 mb-4">
+      <div class="card box-shadow">
+        <div class="card-body">
+          <h5 class="card-title mb-3 text-primary">{{repo.name}}</h5>
+          <h6 class="card-subtitle mb-3 text-muted">{{repo.description}}</h6>
+          <span>{{repo.language}}</span>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
