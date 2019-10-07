@@ -1,0 +1,14 @@
+<div class="blob-container mt-4">
+  <div class="blob-container-header">
+    {{model.blobContent.size}} Bytes
+  </div>
+<div class="blob-container-content">
+{{ivy-codemirror value=model.blobContent.value options=(hash
+  lineNumbers=true
+  mode="javascript"
+  readOnly=true
+  smartIndent=true
+  theme='xq-light'
+  )}}
+</div>
+</div>

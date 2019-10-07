@@ -1,10 +1,22 @@
-<div class="pagehead">
-  <span>
-    <span class="author">
-      <a href="#url" class="url fn" rel="author"></a>{{model.repo}}</span>
-  </span>
+<div class="mb-2">
+  <button class="btn btn-sm" type="button" {{action 'goBack'}}>
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-arrow-left">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </span>
+    <span>
+      Back
+    </span>
+  </button>
 </div>
-
+<div class="Subhead mt-4">
+  <div class="Subhead-heading">{{model.repo}}</div>
+  <div class="Subhead-description">{{model.repository.description}}</div>
+</div>
 <nav class="UnderlineNav UnderlineNav--full" aria-label="Foo bar">
   <div class="container-lg UnderlineNav-container">
     <div class="UnderlineNav-body">
@@ -15,32 +27,4 @@
     </div>
   </div>
 </nav>
-<div class="d-flex justify-content-between mt-4">
-  <table class="table table-sm">
-    <tbody>
-      {{model.tree.proxy}}
-      {{#each model.tree as |file|}}
-        <tr>
-          <td>
-            <span class="mr-1">
-              {{#if (eq file.kind 'dir')}}
-                <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16"
-                  version="1.1" width="14" height="16" role="img">
-                  <path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"></path>
-                </svg>
-              {{else}}
-                <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1"
-                  width="12" height="16" role="img">
-                  <path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path>
-                </svg>
-              {{/if}}
-            </span>
-            {{file.name}}
-          </td>
-          <td>message</td>
-          <td>time</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+{{outlet}}

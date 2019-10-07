@@ -8,6 +8,9 @@ module.exports = function(environment) {
     locationType: 'auto',
     torii: {
       sessionServiceName: 'session',
+      codemirror: {
+        themes: ['xq-light']
+      },
       providers: {
         'github-oauth2': {
           // lets take this from env file

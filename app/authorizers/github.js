@@ -6,6 +6,7 @@ export default Base.extend({
   session: service(),
 
   authorize(sessionData, block) {
+    console.log('sessionData.access_token',sessionData.access_token)
     if (this.get('session.isAuthenticated') && !isEmpty(sessionData.access_token)) {
       block('Authorization', `token ${sessionData.access_token}`);
     }
