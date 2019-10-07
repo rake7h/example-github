@@ -7,7 +7,7 @@ export default Route.extend(AuthenticatedRouteMixin,{
   model() {
     let currentUser = this.get('tabSession').get('git_user');
 
-    let repos = this.get('store').query('github-repository', { user: currentUser, type: 'public' }).then((xhr)=>{
+    let repos = this.get('store').query('github-repository', { user: currentUser, }).then((xhr)=>{
       return xhr;
     });
 

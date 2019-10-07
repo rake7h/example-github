@@ -2,8 +2,11 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model(params) {
-    let repoName = params.repo_name;
-    let tree = this.get('store').queryRecord('github-tree', { repo: repoName, sha: 'master' }).then((xhr)=>{
+    let repositoryModel = this.modelFor('authenticated.home.repository');
+    let repoName = repositoryModel.repo;
+    let sha = params.tree_path;
+
+    let tree = this.get('store').queryRecord('github-tree', {repo: repoName, sha: sha }).then((xhr)=>{
       let directories = xhr.directories;
       let files = xhr.files;
 
@@ -32,7 +35,6 @@ export default Route.extend({
       tree: tree,
 
       //breadcrub navigator
-      repo:repoName
     });
   }
 });
